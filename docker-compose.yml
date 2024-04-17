@@ -1,0 +1,9 @@
+services:
+  back-end:
+    build: ./sostool-backend/
+    ports: 
+      - "8081:8081"
+  front-end:
+    build: ./sostool-frontend/
+    ports:
+      - "80:80"
