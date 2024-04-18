@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService{
         var returnedObj = workspaceMemberRepository.findUserWithRoleInWorkspace(workspace.getId(), user.getId());
         for(var member : returnedObj){
             if(member.getEndDate()==null){
-                System.out.println("User pertence a um cargo cuja data de termino ainda é null");
+                System.out.println("User belongs to a role that still has a null end date");
                 return true;
             }
         }

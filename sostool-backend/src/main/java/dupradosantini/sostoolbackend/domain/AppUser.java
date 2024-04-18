@@ -24,16 +24,16 @@ public class AppUser implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotEmpty(message = "Campo nome é obrigatório")
-    @Length(min = 3, max = 60, message = "O nome deve entre 3 e 30 carateres")
+    @NotEmpty(message = "AppUser name field is required")
+    @Length(min = 3, max = 60, message = "AppUser name must be between 3 and 30 characters")
     private String name;
 
     @Column(unique = true)
-    @NotEmpty(message = "Campo email é obrigatório")
-    @Length(max = 70, message = "O email deve ter no máximo 30 caracteres")
+    @NotEmpty(message = "AppUser email field is required")
+    @Length(max = 70, message = "AppUser email can have at most 30 characters")
     private String email;
 
-    @Length(max=200, message = "Senhas de até 200 caracteres")
+    @Length(max=200, message = "AppUser password can have at most 200 characters")
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "appUser")

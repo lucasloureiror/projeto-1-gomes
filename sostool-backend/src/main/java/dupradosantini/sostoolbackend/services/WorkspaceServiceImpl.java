@@ -136,7 +136,7 @@ public class WorkspaceServiceImpl implements WorkspaceService {
 
     @Override
     public Set<Team> assignRoleToTeam(Integer workspaceId, Integer teamId, Integer roleId) {
-        findById(workspaceId); //checando se o workspace existe
+        findById(workspaceId); //Checking to see if the workspace exists
         Set<Team> teamSet = this.findTeams(workspaceId);
         BusinessRole role = this.findRoleById(roleId);
         Set<Team> roleTeams = role.getTeams();
@@ -236,7 +236,7 @@ public class WorkspaceServiceImpl implements WorkspaceService {
 
     @Override
     public Set<BusinessRole> assignResponsibilityToRole(Integer workspaceId, Integer businessRoleId, Integer responsibilityId) {
-        findById(workspaceId); //checando se o workspace existe
+        findById(workspaceId); //Checking to see if the workspace exists
         findRoleById(businessRoleId);
         Set<BusinessRole> businessRoleSet = this.findAllRoles(workspaceId);
         BusinessResponsibility responsibility = this.findResponsibilityById(responsibilityId);
@@ -258,11 +258,11 @@ public class WorkspaceServiceImpl implements WorkspaceService {
                     this.businessRoleRepository.save(actual);
                     return this.findAllRoles(workspaceId);
                 }else{
-                    System.out.println("Esse responsibility não existe no mesmo workspace desse businessrole.");
+                    System.out.println("This Responsibility doesn't exist in the same Workspace as this BusinessRole.");
                 }
             }
         }
-        System.out.println("BusinessRole não existe nesse workspace!");
+        System.out.println("BusinessRole doesn't exist in this Workspace!");
         return null;
     }
 
@@ -278,7 +278,7 @@ public class WorkspaceServiceImpl implements WorkspaceService {
             businessRoleRepository.save(role);
             return role.getRoleAssignedResponsibilities();
         }else{
-            System.out.println("Essa responsibility não está atribuida a esse role.");
+            System.out.println("This Responsibility is not assigned to this role.");
         }
         return role.getRoleAssignedResponsibilities();
     }
@@ -305,7 +305,7 @@ public class WorkspaceServiceImpl implements WorkspaceService {
         var user = userService.findById(memberId);
         var userCurrentMemberSet = userService.findUserMemberSet(user,role);
         if(userCurrentMemberSet.isPresent()){
-            System.out.println("Usuário ja é membro desse role.");
+            System.out.println("User is already a member of this role.");
             return userService.findUsersWithRole(role);
         }else if(!userService.UserHasRoleInWorkspace(user, workspace)){
 
@@ -314,8 +314,8 @@ public class WorkspaceServiceImpl implements WorkspaceService {
             this.userService.createWorkspaceMember(newMember);
             return userService.findUsersWithRole(role);
         }
-        System.out.println("Usuário possui cargo não encerrado");
-        throw new ObjectNotFoundException("Usuário ja possui cargo!");
+        System.out.println("User has an unfinished role");
+        throw new ObjectNotFoundException("User already has role!");
     }
 
     @Override
