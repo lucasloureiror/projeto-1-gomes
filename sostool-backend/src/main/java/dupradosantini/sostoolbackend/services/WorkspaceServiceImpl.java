@@ -47,7 +47,7 @@ public class WorkspaceServiceImpl implements WorkspaceService {
 
     @Override
     public Workspace findById(Integer id) {
-        log.debug("Im in the workspace service, findById Method");
+        log.debug("I'm in the workspace service, findById Method");
         Optional<Workspace> obj = workspaceRepository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Workspace not found!!"));
     }
