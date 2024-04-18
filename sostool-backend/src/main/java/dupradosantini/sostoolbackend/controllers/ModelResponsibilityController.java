@@ -23,7 +23,7 @@ public class ModelResponsibilityController {
     }
 
     //FIND ALL METHOD //TODO - Maybe DTOs for Swagger consistency
-    @Operation(summary = "Fetches all the ModelResposibilities available!")
+    @Operation(summary = "Fetches all the ModelResponsibilities available!")
     @ApiResponse(responseCode = "200", description = "List of all ModelResponsibilities retrieved")
     @GetMapping
     public ResponseEntity<List<ModelResponsibility>> findAll() {

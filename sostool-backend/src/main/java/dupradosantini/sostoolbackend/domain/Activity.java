@@ -25,10 +25,10 @@ public class Activity implements Serializable {
     private Integer id;
 
     @NotEmpty(message = "Activity name field is required")
-    @Length(min = 3, max = 80, message = "Actitivity name must be between 3 and 80 characters")
+    @Length(min = 3, max = 80, message = "Activity name must be between 3 and 80 characters")
     private String name;
 
-    @Length( max = 300, message = "Actitivity name must be between 3 and 300 characters")
+    @Length( max = 300, message = "Activity name must be between 3 and 300 characters")
     private String description;
 
     @ManyToOne(optional = false)

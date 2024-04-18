@@ -29,7 +29,7 @@ public class WorkspaceController {
     @Operation(summary = "Fetches a single Workspace information, by its ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",
-                    description = "Workspace information retrieved succesfully",
+                    description = "Workspace information retrieved successfully",
                     content = {
                         @Content(mediaType = "application/json",
                         schema = @Schema(description = "Workspace Schema", implementation = Workspace.class))
